@@ -1,8 +1,9 @@
+
 var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var guessArray = [];
 
 // computer picks random letter and stores in a variable 
-// var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+var randomLetter = letters[Math.floor(Math.random() * letters.length)];
 
 var wins = 0;
 var losses = 0;
@@ -18,7 +19,7 @@ var guessesSoFar = document.getElementById("guessessofar-text");
 document.onkeyup = function(event) {
     
     // computer picks random letter and stores in a variable 
-    var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+    // var randomLetter = letters[Math.floor(Math.random() * letters.length)];
     
     // variable to store user input and set to to lower case 
     var userGuess = event.key.toLowerCase();
@@ -36,8 +37,9 @@ document.onkeyup = function(event) {
             wins++;
             guessesLeft = 9;
             guessArray = [];
-            // var randomLetter = letters[Math.floor(Math.random() * letters.length)];
-            alert("You win!");
+            alert("You win! I was thinking of the letter " + randomLetter + "!");
+            randomLetter = letters[Math.floor(Math.random() * letters.length)];
+
         }
 
         else {
@@ -49,14 +51,14 @@ document.onkeyup = function(event) {
             losses++;
             guessesLeft = 9;
             guessArray = [];
-            // var randomLetter = letters[Math.floor(Math.random() * letters.length)];
-            alert("You lose :(");
+            alert("You lose. I thinking of the letter " + randomLetter + " :(");
+            randomLetter = letters[Math.floor(Math.random() * letters.length)];
         }
 
         winsText.textContent = "Wins: " + wins;
         lossesText.textContent = "Losses: " + losses;
         guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
-        guessesSoFar.textContent = "Your Guesses So Far: " + guessArray;
+        guessesSoFar.textContent = "Your Guesses So Far: " + guessArray + " ";
     }
 
 };
